@@ -1,9 +1,14 @@
 package ru.oshkina;
 
+import java.util.Arrays;
+
 public class Solution {
 
+    private static final String PATH = "C:\\Users\\maibo\\IdeaProjects\\stream-api-test-task\\src\\main\\resources\\words.txt";
+
     public static void main(String[] args) {
-        DataService dataService = new DataService();
+        final StorageService storageService = new StorageService(PATH);
+        DataService dataService = new DataService(storageService.getContent(), storageService.getWords(), Arrays.asList("ауеыоэяи".split("")));
         //1 - результат 191
         System.out.println(dataService.wordsAverageLength());
         //2 - сказал

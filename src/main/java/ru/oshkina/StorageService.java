@@ -6,24 +6,29 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
+
 public class StorageService {
 
     //getter
-    private final List<String> content = readFile();
-    private final List<String> words = wordsReadFile();
+    private final List<String> content;
+    private final List<String> words;
+    private String value;
+
+    @SneakyThrows
+    public StorageService(String path){
+        value = new String(Files.readAllBytes(Paths.get(path)));
+        content = readFile();
+        words = wordsReadFile();
+    }
 
     @SneakyThrows
     private List<String> readFile()  {
-            String value = new String(Files.readAllBytes(Paths.get("C:\\Users\\maibo\\IdeaProjects\\stream-api-test-task\\src\\main\\resources\\words.txt")));
-            List<String> list = Arrays.asList(value.split("\r\n"));
-            return list;
+           return Arrays.asList(value.split("\r\n"));
     }
 
     @SneakyThrows
     private List<String> wordsReadFile()  {
-        String value = new String(Files.readAllBytes(Paths.get("C:\\Users\\maibo\\IdeaProjects\\stream-api-test-task\\src\\main\\resources\\words.txt")));
-        List<String> list = Arrays.asList(value.split("\\PL+"));
-        return list;
+        return Arrays.asList(value.split("\\PL+"));
     }
 
     public List<String> getContent() {
