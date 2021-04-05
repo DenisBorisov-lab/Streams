@@ -2,7 +2,9 @@ package ru.oshkina;
 
 import YAML.ReadingYAML;
 import YAML.Types;
-import org.junit.Assert;
+
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -10,7 +12,7 @@ import java.util.List;
 
 public class DataServiceTest {
 
-    ReadingYAML reader = new ReadingYAML();
+    private final ReadingYAML reader = new ReadingYAML();
     private final String GENERAL = reader.read(Types.GENERAL);
     private final String TEST = reader.read(Types.TEST);
     private final StorageService generalService = new StorageService(GENERAL);
@@ -25,36 +27,36 @@ public class DataServiceTest {
     @Test
     public void firstTest() {
         double answer = generalDataService.wordsAverageLength();
-        Assert.assertEquals(191, answer, 0);
+        assertEquals(191, answer, 0);
     }
 
     @Test
-    public void secondTest(){
+    public void secondTest() {
         String answer = generalDataService.mostFrequentWord();
-        Assert.assertEquals("сказал", answer);
+        assertEquals("сказал", answer);
     }
 
     @Test
-    public void thirdTest(){
+    public void thirdTest() {
         wordsForTest.sort((o1, o2) -> o2.length() - o1.length());
         List<String> expectedList = testDataService.longestWords();
         boolean answer = true;
-        for (int i = 0; i < 30; i++){
-            if (!expectedList.get(i).equals(wordsForTest.get(i))){
+        for (int i = 0; i < 30; i++) {
+            if (!expectedList.get(i).equals(wordsForTest.get(i))) {
                 answer = false;
                 break;
             }
         }
-        Assert.assertTrue(answer);
+        assertTrue(answer);
     }
 
     @Test
-    public void fourthTest(){
+    public void fourthTest() {
         boolean answer = false;
         List<String> strings = testDataService.wordsWith5UniqueVowels();
-        if (strings.size() == 1 && strings.get(0).equals("воображению")){
+        if (strings.size() == 1 && strings.get(0).equals("воображению")) {
             answer = true;
         }
-        Assert.assertTrue(answer);
+        assertTrue(answer);
     }
 }

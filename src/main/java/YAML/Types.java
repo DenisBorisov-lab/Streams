@@ -1,6 +1,6 @@
 package YAML;
 
 public enum Types {
-    GENERAL(),
-    TEST();
+    GENERAL,
+    TEST
 }

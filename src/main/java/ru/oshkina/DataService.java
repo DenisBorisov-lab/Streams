@@ -25,7 +25,8 @@ public class DataService {
         Optional<Integer> reduce = collect.stream()
                 .map(String::length)
                 .reduce(Integer::sum);
-        int i = reduce.get();
+        int i = reduce
+                .orElseThrow(UnsupportedOperationException::new);
         return Math.round(i / length);
     }
 
@@ -33,8 +34,8 @@ public class DataService {
     public List<String> longestWords() {
         return words.stream()
                 .sorted((o1, o2) -> o2.length() - o1.length())
-                .limit(31)
                 .distinct()
+                .limit(31)
                 .collect(Collectors.toList());
 
     }
