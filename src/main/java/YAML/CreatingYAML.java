@@ -19,5 +19,4 @@ public class CreatingYAML {
         pathLine.add(new Paths("C:\\Users\\maibo\\IdeaProjects\\stream-api-test-task\\src\\main\\resources\\testCase.txt", Types.TEST));
         mapper.writeValue(new File("C:\\Users\\maibo\\IdeaProjects\\stream-api-test-task\\src\\main\\resources\\paths.yaml"), pathLine);
     }
-    
 }
