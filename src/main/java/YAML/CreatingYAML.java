@@ -14,8 +14,8 @@ public class CreatingYAML {
     public static void main(String[] args) {
         YAMLMapper mapper = new YAMLMapper(new YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER));
         List<Paths> pathLine = new ArrayList<>();
-        pathLine.add(new Paths("C:\\Users\\maibo\\IdeaProjects\\stream-api-test-task\\src\\main\\resources\\words.txt", Types.GENERAL));
-        pathLine.add(new Paths("C:\\Users\\maibo\\IdeaProjects\\stream-api-test-task\\src\\main\\resources\\testCase.txt", Types.TEST));
-        mapper.writeValue(new File("C:\\Users\\maibo\\IdeaProjects\\stream-api-test-task\\src\\main\\resources\\paths.yaml"), pathLine);
+        pathLine.add(new Paths("C:\\Users\\maibo\\IdeaProjects\\stream-api-test-task\\src\\test\\resources\\words.txt", Types.GENERAL));
+        pathLine.add(new Paths("C:\\Users\\maibo\\IdeaProjects\\stream-api-test-task\\src\\test\\resources\\testCase.txt", Types.TEST));
+        mapper.writeValue(new File("C:\\Users\\maibo\\IdeaProjects\\stream-api-test-task\\src\\test\\resources\\paths.yaml"), pathLine);
     }
 }

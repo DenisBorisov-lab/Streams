@@ -1,0 +1,6 @@
+- path: "C:\\Users\\maibo\\IdeaProjects\\stream-api-test-task\\src\\test\\resources\\\
+    words.txt"
+  type: "GENERAL"
+- path: "C:\\Users\\maibo\\IdeaProjects\\stream-api-test-task\\src\\test\\resources\\\
+    testCase.txt"
+  type: "TEST"

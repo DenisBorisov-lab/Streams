@@ -12,7 +12,7 @@ public class ReadingYAML {
 
     @SneakyThrows
     public String read(Types type) {
-        String path = "C:\\Users\\maibo\\IdeaProjects\\stream-api-test-task\\src\\main\\resources\\paths.yaml";
+        String path = "C:\\Users\\maibo\\IdeaProjects\\stream-api-test-task\\src\\test\\resources\\paths.yaml";
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         List<YAML.Paths> paths = mapper.readValue(new File(path), new TypeReference<List<YAML.Paths>>() {});
         return paths.stream()
